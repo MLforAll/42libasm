@@ -6,7 +6,7 @@
 #    By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 06:10:18 by kdumarai          #+#    #+#              #
-#    Updated: 2020/01/02 01:05:12 by kdumarai         ###   ########.fr        #
+#    Updated: 2020/01/02 14:23:28 by kdumarai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME = libasm.a
 TESTNAME = testsuite
 
 SRCDIR = srcs
-SRCFILES = ft_strlen.s ft_strcmp.s
+SRCFILES = ft_strlen.s \
+			ft_strcpy.s \
+			ft_strcmp.s \
+			ft_strdup.s
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
 
 OBJDIR = objs/lib
