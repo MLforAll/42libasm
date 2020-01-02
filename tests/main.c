@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "libasm.h"
 
 int
@@ -34,6 +35,13 @@ main(int ac, const char **av)
 	free(ptr);
 	(void) printf("strdup   : %s\n", (ptr = strdup(s2)));
 	free(ptr);
+
+	(void) puts("type some stuff");
+	bzero(buffer, sizeof(buffer));
+	(void) printf("ft_read: %zu; %s\n", ft_read(0, buffer, 511), buffer);
+	(void) puts("type some more stuff");
+	bzero(buffer, sizeof(buffer));
+	(void) printf("read   : %zu; %s\n", read(0, buffer, 511), buffer);
 
 	return 0;
 }

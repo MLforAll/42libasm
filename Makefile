@@ -6,7 +6,7 @@
 #    By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 06:10:18 by kdumarai          #+#    #+#              #
-#    Updated: 2020/01/02 16:15:51 by kdumarai         ###   ########.fr        #
+#    Updated: 2020/01/02 21:44:22 by kdumarai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ SRCDIR = srcs
 SRCFILES = ft_strlen.s \
 			ft_strcpy.s \
 			ft_strcmp.s \
-			ft_strdup.s
+			ft_strdup.s \
+			ft_write.s \
+			ft_read.s
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
 
 OBJDIR = objs/lib
