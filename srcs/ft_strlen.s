@@ -4,8 +4,10 @@ section .text
 _ft_strlen:
 	mov rcx, 0
 .loop:
-	inc rcx
 	cmp byte [rdi + rcx], 0
-	jne .loop
+	je .ret
+	inc rcx
+	jmp .loop
+.ret:
 	mov rax, rcx
 	ret
