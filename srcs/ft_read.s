@@ -1,4 +1,4 @@
-%define MACH_SYSCALL(x)	0x20000000 | x
+%define MACH_SYSCALL(x)	0x2000000 | x
 %define READ_SYSCALL	3
 
 section .text
