@@ -2,15 +2,15 @@ section .text
 	global _ft_strcpy
 
 _ft_strcpy:
-	mov rcx, 0
 	mov rax, rdi
 .loop:
-	mov dl, byte [rsi + rcx]
+	mov dl, byte [rsi]
 	cmp dl, 0
 	je .ret
 	mov byte [rdi], dl
-	inc rcx
+	inc rsi
 	inc rdi
 	jmp .loop
 .ret:
+	mov byte [rdi], 0
 	ret
