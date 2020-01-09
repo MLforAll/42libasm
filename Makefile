@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+         #
+#    By: kelian <kelian@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 06:10:18 by kdumarai          #+#    #+#              #
-#    Updated: 2020/01/06 17:12:58 by kdumarai         ###   ########.fr        #
+#    Updated: 2020/01/09 16:22:48 by kelian           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ SRCFILES = ft_strlen.s \
 			ft_strcmp.s \
 			ft_strdup.s \
 			ft_write.s \
-			ft_read.s
+			ft_read.s \
+			ft_list_size.s \
+			ft_list_push_front.s \
+			ft_list_remove_if.s
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
 
 OBJDIR = objs/lib
