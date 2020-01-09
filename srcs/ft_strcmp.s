@@ -2,6 +2,8 @@ section .text
 	global _ft_strcmp
 
 _ft_strcmp:
+	push rbp
+	mov rbp, rsp
 .loop:
 	mov dl, byte [rsi]
 	cmp byte [rdi], dl
@@ -15,7 +17,9 @@ _ft_strcmp:
 	jmp .loop
 .ret:
 	mov eax, 0
-	mov al, byte [rdi]
-	sub al, dl
-	movsx eax, al
+	movzx eax, byte [rdi]
+	movzx edx, dl
+	sub eax, edx
+	mov rsp, rbp
+	pop rbp
 	ret

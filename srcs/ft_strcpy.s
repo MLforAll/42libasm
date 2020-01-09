@@ -2,6 +2,8 @@ section .text
 	global _ft_strcpy
 
 _ft_strcpy:
+	push rbp
+	mov rbp, rsp
 	mov rax, rdi
 .loop:
 	mov dl, byte [rsi]
@@ -13,4 +15,6 @@ _ft_strcpy:
 	jmp .loop
 .ret:
 	mov byte [rdi], 0
+	mov rsp, rbp
+	pop rbp
 	ret

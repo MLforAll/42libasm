@@ -5,6 +5,10 @@ section .text
 	global _ft_write
 
 _ft_write:
+	push rbp
+	mov rbp, rsp
 	mov rax, MACH_SYSCALL(WRITE_SYSCALL)
 	syscall
+	mov rsp, rbp
+	pop rbp
 	ret
