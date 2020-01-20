@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 04:10:21 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 04:12:38 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/20 22:40:22 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void			ft_list_push_front(t_list **head, t_list *e);
 void			ft_list_remove_if(t_list **head, \
 								void *data, \
 								int (*cmp)(void *, void *));
+void			ft_list_sort(t_list **head, int (*cmp)(void *, void *));
 
 int				ft_atoi_base(const char *s, int base);
 

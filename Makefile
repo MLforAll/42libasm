@@ -6,7 +6,7 @@
 #    By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 06:10:18 by kdumarai          #+#    #+#              #
-#    Updated: 2020/01/20 03:06:06 by kdumarai         ###   ########.fr        #
+#    Updated: 2020/01/20 22:38:03 by kdumarai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ OBJS = $(SRCS:$(SRCDIR)/%.s=$(OBJDIR)/%.o)
 BONUSSRCFILES = bonus/ft_list_size_bonus.s \
 				bonus/ft_list_push_front_bonus.s \
 				bonus/ft_list_remove_if_bonus.s \
+				bonus/ft_list_sort_bonus.s \
 				bonus/ft_atoi_base_bonus.s
 BONUSSRCS = $(addprefix $(SRCDIR)/, $(BONUSSRCFILES))
 BONUSOBJS = $(BONUSSRCS:$(SRCDIR)/%.s=$(OBJDIR)/%.o)
