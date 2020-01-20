@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libasm.h                                           :+:      :+:    :+:   */
+/*   libasm_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/02 00:38:12 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 04:11:20 by kdumarai         ###   ########.fr       */
+/*   Created: 2020/01/20 04:10:21 by kdumarai          #+#    #+#             */
+/*   Updated: 2020/01/20 04:12:38 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBASM_H
-# define LIBASM_H
+#ifndef LIBASM_BONUS_H
+# define LIBASM_BONUS_H
 
-# include <string.h>
+typedef struct	s_list
+{
+	void			*data;
+	struct s_list	*next;
+}				t_list;
 
-size_t			ft_strlen(const char *s);
-char			*ft_strcpy(char *dst, const char *src);
-int				ft_strcmp(const char *s1, const char *s2);
-char			*ft_strdup(const char *s);
+size_t			ft_list_size(t_list *list);
+void			ft_list_push_front(t_list **head, t_list *e);
+void			ft_list_remove_if(t_list **head, \
+								void *data, \
+								int (*cmp)(void *, void *));
 
-ssize_t			ft_write(int fd, const void *buff, size_t n);
-ssize_t			ft_read(int fd, void *buff, size_t n);
+int				ft_atoi_base(const char *s, int base);
 
 #endif

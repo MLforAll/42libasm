@@ -4,22 +4,25 @@ section .text
 _ft_strcmp:
 	push rbp
 	mov rbp, rsp
-.loop:
+	mov eax, 0
+	cmp rdi, 0
+	je .ft_ret
+.ft_loop:
 	mov dl, byte [rsi]
 	cmp byte [rdi], dl
-	jne .ret
+	jne .finish
 	cmp byte [rdi], 0
-	je .ret
+	je .finish
 	cmp dl, 0
-	je .ret
+	je .finish
 	inc rdi
 	inc rsi
-	jmp .loop
-.ret:
-	mov eax, 0
+	jmp .ft_loop
+.finish:
 	movzx eax, byte [rdi]
 	movzx edx, dl
 	sub eax, edx
+.ft_ret:
 	mov rsp, rbp
 	pop rbp
 	ret

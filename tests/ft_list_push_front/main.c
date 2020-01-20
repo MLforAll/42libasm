@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kelian <kelian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kelian            #+#    #+#             */
-/*   Updated: 2020/01/09 16:14:18 by kelian           ###   ########.fr       */
+/*   Updated: 2020/01/20 04:13:08 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+
 #include "libasm.h"
+#include "libasm_bonus.h"
 
 static void		ft_print_result(int n)
 {

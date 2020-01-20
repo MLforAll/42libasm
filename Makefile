@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kelian <kelian@student.42.fr>              +#+  +:+       +#+         #
+#    By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 06:10:18 by kdumarai          #+#    #+#              #
-#    Updated: 2020/01/09 16:22:48 by kelian           ###   ########.fr        #
+#    Updated: 2020/01/20 03:06:06 by kdumarai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,25 @@ SRCFILES = ft_strlen.s \
 			ft_strcmp.s \
 			ft_strdup.s \
 			ft_write.s \
-			ft_read.s \
-			ft_list_size.s \
-			ft_list_push_front.s \
-			ft_list_remove_if.s
+			ft_read.s
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
 
-OBJDIR = objs/lib
+OBJDIR = objs
 OBJS = $(SRCS:$(SRCDIR)/%.s=$(OBJDIR)/%.o)
+
+BONUSSRCFILES = bonus/ft_list_size_bonus.s \
+				bonus/ft_list_push_front_bonus.s \
+				bonus/ft_list_remove_if_bonus.s \
+				bonus/ft_atoi_base_bonus.s
+BONUSSRCS = $(addprefix $(SRCDIR)/, $(BONUSSRCFILES))
+BONUSOBJS = $(BONUSSRCS:$(SRCDIR)/%.s=$(OBJDIR)/%.o)
 
 PROJTEXT = \033[1;36m$(basename $(NAME)): \033[0;39m
 
 all: $(NAME)
+
+bonus:
+	@ $(MAKE) 'OBJS=$(OBJS) $(BONUSOBJS)' $(NAME)
 
 $(NAME): $(OBJS)
 	@ printf "$(PROJTEXT)Linking\n"
@@ -42,7 +49,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.s
 	@ nasm -f macho64 $< -o $@
 
 clean:
-	@ rm -rf $(dir $(OBJDIR))
+	@ rm -rf $(OBJDIR)
 	@ printf "$(PROJTEXT)Removed objects\n"
 
 fclean: clean

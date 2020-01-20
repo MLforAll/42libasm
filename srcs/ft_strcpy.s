@@ -5,16 +5,19 @@ _ft_strcpy:
 	push rbp
 	mov rbp, rsp
 	mov rax, rdi
-.loop:
+	cmp rdi, 0
+	je .ft_ret
+.ft_loop:
 	mov dl, byte [rsi]
 	cmp dl, 0
-	je .ret
+	je .finish
 	mov byte [rdi], dl
 	inc rsi
 	inc rdi
-	jmp .loop
-.ret:
+	jmp .ft_loop
+.finish:
 	mov byte [rdi], 0
+.ft_ret:
 	mov rsp, rbp
 	pop rbp
 	ret

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo '=> Make lib'
-make -C ..
+make -C .. bonus
 echo
 
 for t in *
