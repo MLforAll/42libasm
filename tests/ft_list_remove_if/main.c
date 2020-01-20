@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kelian            #+#    #+#             */
-/*   Updated: 2020/01/20 18:34:20 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/20 19:18:24 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ int				main(int argc, const char *argv[])
 	switch (atoi(argv[1]))
 	{
 		case 1:
-			ft_list_remove_if(&list, "welcome42", &remif_cb);
+			ft_list_remove_if(&list, "yolo", &remif_cb);
 			break ;
 		case 2:
-			ft_list_remove_if(&list, "yolo", &remif_cb);
+			ft_list_remove_if(&list, "welcome42", &remif_cb);
 			break ;
 		case 3:
 			ft_list_remove_if(&list, "libasm or libftasm?!", &remif_cb);
