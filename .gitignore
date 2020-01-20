@@ -1,1 +1,3 @@
-tests/*/*.mine
+/tests/*/*.mine
+/libasm.a
+/objs
