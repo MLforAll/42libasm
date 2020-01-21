@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 23:21:04 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/21 21:52:38 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,12 @@ static size_t	ft_test_list_size(t_list *lst)
 int				main(int argc, const char *argv[])
 {
 	t_list	*list;
+	t_list	*ptr;
+	t_list	*tmp;
 
-	if (argc == 1)
+	if (argc < 2)
 		return EXIT_FAILURE;
-	alarm(5);
+	(void)alarm(5);
 	switch (atoi(argv[1]))
 	{
 		case 1:
@@ -80,6 +82,17 @@ int				main(int argc, const char *argv[])
 			ft_list_push_front(&list, ft_list_newnode("AssemblyYourself"));
 			ft_list_push_front(&list, ft_list_newnode("libasm or libftasm?!"));
 			ft_print_result(ft_test_list_size(list));
+			break ;
+		case 4:
+			ptr = NULL;
+			tmp = ft_list_newnode("libasm or libftasm?!");
+			list = ft_list_newnode("welcome42");
+			ft_list_push_front(&list, ft_list_newnode("foobar"));
+			ft_list_push_front(&list, ft_list_newnode("AssemblyYourself"));
+			ft_list_push_front(NULL, tmp);
+			ft_list_push_front(&ptr, tmp);
+			ft_print_result(ft_test_list_size(list));
+			free(tmp);
 			break ;
 		default:
 			break ;

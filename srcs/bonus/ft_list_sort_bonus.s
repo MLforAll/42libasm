@@ -6,10 +6,12 @@ _ft_list_sort:
 	mov rbp, rsp
 	sub rsp, 48
 
+	cmp rsi, 0
+	je .ft_ret ; if 2nd arg (cmp) is NULL then jump to .ft_ret
 	cmp rdi, 0
 	je .ft_ret ; if 1st arg (head) is NULL then jump to .ft_ret
 	cmp qword [rdi], 0
-	je .ft_ret ; if 2nd arg (cmp) is NULL then jump to .ft_ret
+	je .ft_ret ; if 1st arg points to NULL (*head == NULL) then jump to .ft_ret
 
 	mov rdi, qword [rdi]
 	mov qword [rbp - 8], rdi ; save *head (deref 1st arg)

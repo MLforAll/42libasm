@@ -7,6 +7,8 @@ _ft_strcpy:
 	mov rax, rdi
 	cmp rdi, 0
 	je .ft_ret
+	cmp rsi, 0
+	je .ft_ret
 .ft_loop:
 	mov dl, byte [rsi]
 	cmp dl, 0

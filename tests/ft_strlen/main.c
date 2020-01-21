@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 11:58:17 by jtoty             #+#    #+#             */
-/*   Updated: 2020/01/06 16:40:45 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/21 21:35:46 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 #include "libasm.h"
 
-static void		ft_print_result(int n)
+static void		ft_print_result(size_t n)
 {
 	char c;
 
@@ -27,22 +27,34 @@ static void		ft_print_result(int n)
 
 int				main(int argc, const char *argv[])
 {
-	int		arg;
-
-	alarm(5);
-	if (argc == 1)
-		return (0);
-	else if ((arg = atoi(argv[1])) == 1)
-		ft_print_result(ft_strlen("Hello !"));
-	else if (arg == 2)
-		ft_print_result(ft_strlen("1"));
-	else if (arg == 3)
-		ft_print_result(ft_strlen("lorem\tipsum\tdolor\nsit\namet\n"));
-	else if (arg == 4)
-		ft_print_result(ft_strlen(""));
-	else if (arg == 5)
-		ft_print_result(ft_strlen("\n\n\f\r\t"));
-	else if (arg == 6)
-		ft_print_result(ft_strlen("   "));
-	return (0);
+	if (argc < 2)
+		return EXIT_FAILURE;
+	(void)alarm(5);
+	switch (atoi(argv[1]))
+	{
+		case 1:
+			ft_print_result(ft_strlen("Hello !"));
+			break ;
+		case 2:
+			ft_print_result(ft_strlen("1"));
+			break ;
+		case 3:
+			ft_print_result(ft_strlen("lorem\tipsum\tdolor\nsit\namet\n"));
+			break ;
+		case 4:
+			ft_print_result(ft_strlen(""));
+			break ;
+		case 5:
+			ft_print_result(ft_strlen("\n\n\f\r\t"));
+			break ;
+		case 6:
+			ft_print_result(ft_strlen("   "));
+			break ;
+		case 7:
+			ft_print_result(ft_strlen(NULL));
+			break ;
+		default:
+			break ;
+	}
+	return EXIT_SUCCESS;
 }

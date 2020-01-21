@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 23:21:15 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/21 21:54:36 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ static int		remif_cb(void *a, void *b)
 int				main(int argc, const char *argv[])
 {
 	t_list	*list;
+	t_list	*ptr;
 
 	if (argc == 1)
 		return EXIT_FAILURE;
@@ -116,6 +117,13 @@ int				main(int argc, const char *argv[])
 			ft_list_release(&list);
 			list = ft_list_newnode("say something");
 			ft_list_remove_if(&list, "say something", &remif_cb);
+			break ;
+		case 7:
+			ptr = NULL;
+			ft_list_remove_if(&ptr, "foobar", &remif_cb);
+			break ;
+		case 8:
+			ft_list_remove_if(NULL, "foobar", &remif_cb);
 			break ;
 		default:
 			break ;

@@ -15,13 +15,15 @@ _ft_list_remove_if:
 
 	cmp rdi, 0 ; check that head is non-null
 	je .ft_ret
+	mov rcx, qword [rdi] ; rcx = *head
+	cmp rcx, 0
+	je .ft_ret
 	cmp rdx, 0 ; check that cmp is non-null
 	je .ft_ret
 
 	mov qword [rbp - 8], rdi ; save head
 	mov qword [rbp - 16], rsi ; save data
 	mov qword [rbp - 24], rdx ; save cmp
-	mov rcx, qword [rdi] ; rcx = *head
 	mov qword [rbp - 32], rcx ; t_list *curr = rcx
 	mov qword [rbp - 40], rcx ; t_list *prev = rcx
 

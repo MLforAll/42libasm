@@ -4,9 +4,22 @@ section .text
 _ft_strcmp:
 	push rbp
 	mov rbp, rsp
+
 	mov eax, 0
+
 	cmp rdi, 0
+	jne .s1_notnull
+	cmp rsi, 0
 	je .ft_ret
+	movsx eax, byte [rsi]
+	neg eax
+	jmp .ft_ret
+.s1_notnull:
+	cmp rsi, 0
+	jne .ft_loop
+	movsx eax, byte [rdi]
+	jmp .ft_ret
+
 .ft_loop:
 	mov dl, byte [rsi]
 	cmp byte [rdi], dl

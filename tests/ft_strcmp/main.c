@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 12:04:21 by jtoty             #+#    #+#             */
-/*   Updated: 2020/01/06 17:11:58 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/21 21:40:33 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int			main(int argc, const char *argv[])
 {
 	int		arg;
 
-	alarm(5);
-	if (argc == 1)
-		return (0);
+	(void)alarm(5);
+	if (argc < 2)
+		return EXIT_FAILURE;
 	else if ((arg = atoi(argv[1])) == 1)
 		ft_print_result(ft_strcmp("salut", "salut"));
 	else if (arg == 2)
@@ -46,5 +46,11 @@ int			main(int argc, const char *argv[])
 		ft_print_result(ft_strcmp("test", ""));
 	else if (arg == 7)
 		ft_print_result(ft_strcmp("test\200", "test\0"));
-	return (0);
+	else if (arg == 8)
+		ft_print_result(ft_strcmp("422119", NULL));
+	else if (arg == 9)
+		ft_print_result(ft_strcmp(NULL, "422119"));
+	else if (arg == 10)
+		ft_print_result(ft_strcmp(NULL, NULL));
+	return EXIT_SUCCESS;
 }

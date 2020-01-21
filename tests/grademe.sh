@@ -86,7 +86,7 @@ do
 				0 )
 					msg g -n .
 					;;
-				1 )
+				* )
 					msg e -n X
 					;;
 			esac

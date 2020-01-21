@@ -4,16 +4,15 @@ section .text
 _ft_strlen:
 	push rbp
 	mov rbp, rsp
+	mov rax, 0
 	cmp rdi, 0
 	je .ret
-	mov rcx, 0
 .loop:
-	cmp byte [rdi + rcx], 0
+	cmp byte [rdi + rax], 0
 	je .ret
-	inc rcx
+	inc rax
 	jmp .loop
 .ret:
-	mov rax, rcx
 	mov rsp, rbp
 	pop rbp
 	ret

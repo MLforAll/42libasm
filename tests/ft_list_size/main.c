@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 23:21:23 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/21 21:47:04 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libasm.h"
 #include "libasm_bonus.h"
 
-static void		ft_print_result(int n)
+static void		ft_print_result(size_t n)
 {
 	char	c;
 
@@ -50,9 +50,9 @@ int				main(int argc, const char *argv[])
 {
 	t_list	*list;
 
-	if (argc == 1)
+	if (argc < 2)
 		return EXIT_FAILURE;
-	alarm(5);
+	(void)alarm(5);
 	switch (atoi(argv[1]))
 	{
 		case 1:
@@ -75,6 +75,9 @@ int				main(int argc, const char *argv[])
 			ft_list_add(&list, ft_list_newnode("AssemblyYourself"));
 			ft_list_add(&list, ft_list_newnode("libasm or libftasm?!"));
 			ft_print_result(ft_list_size(list));
+			break ;
+		case 4:
+			ft_print_result(ft_list_size(NULL));
 			break ;
 		default:
 			break ;

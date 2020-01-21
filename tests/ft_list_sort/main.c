@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 23:19:23 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/21 21:46:23 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,15 @@ static int		list_sort_cb(void *a, void *b)
 int				main(int argc, const char *argv[])
 {
 	t_list	*list;
+	t_list	**ptr;
+	int		(*cbf)(void *, void *);
 
 	if (argc == 1)
 		return EXIT_FAILURE;
 	alarm(5);
 	list = NULL;
+	ptr = &list;
+	cbf = &list_sort_cb;
 	switch (atoi(argv[1]))
 	{
 		case 1:
@@ -94,10 +98,26 @@ int				main(int argc, const char *argv[])
 			ft_list_push_back(&list, ft_list_newnode("AssemblyYourself"));
 			ft_list_push_back(&list, ft_list_newnode("libasm or libftasm?!"));
 			break ;
+		case 4:
+			break ;
+		case 5:
+			cbf = NULL;
+			list = ft_list_newnode("one");
+			ft_list_push_back(&list, ft_list_newnode("two"));
+			break ;
+		case 6:
+			cbf = NULL;
+			break ;
+		case 7:
+			list = ft_list_newnode("one");
+			break ;
+		case 8:
+			ptr = NULL;
+			break ;
 		default:
 			break ;
 	}
-	ft_list_sort(&list, &list_sort_cb);
+	ft_list_sort(&list, cbf);
 	ft_print_result(list);
 	return EXIT_SUCCESS;
 }
