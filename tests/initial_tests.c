@@ -6,13 +6,15 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 23:19:45 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/20 23:22:15 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/22 18:23:24 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <errno.h>
+
 #include "libasm.h"
 
 static char *
