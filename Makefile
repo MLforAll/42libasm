@@ -6,7 +6,7 @@
 #    By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/04 06:10:18 by kdumarai          #+#    #+#              #
-#    Updated: 2020/01/20 22:38:03 by kdumarai         ###   ########.fr        #
+#    Updated: 2020/01/22 01:32:12 by kdumarai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,4 +59,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+reb: fclean bonus
+
+.PHONY: all bonus clean fclean re reb

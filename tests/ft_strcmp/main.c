@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 12:04:21 by jtoty             #+#    #+#             */
-/*   Updated: 2020/01/21 21:40:33 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/22 03:42:27 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ int			main(int argc, const char *argv[])
 		ft_print_result(ft_strcmp(NULL, "422119"));
 	else if (arg == 10)
 		ft_print_result(ft_strcmp(NULL, NULL));
+	else if (arg == 11)
+		ft_print_result(ft_strcmp("\x12\xff\x65\x12\xbd\xde\xad", "\x12\x02"));
 	return EXIT_SUCCESS;
 }

@@ -6,20 +6,20 @@ _ft_strcpy:
 	mov rbp, rsp
 	mov rax, rdi
 	cmp rdi, 0
-	je .ft_ret
+	je .ret
 	cmp rsi, 0
-	je .ft_ret
-.ft_loop:
+	je .ret
+.loop:
 	mov dl, byte [rsi]
 	cmp dl, 0
 	je .finish
 	mov byte [rdi], dl
 	inc rsi
 	inc rdi
-	jmp .ft_loop
+	jmp .loop
 .finish:
 	mov byte [rdi], 0
-.ft_ret:
+.ret:
 	mov rsp, rbp
 	pop rbp
 	ret

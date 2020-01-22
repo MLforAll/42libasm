@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/21 21:54:36 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/22 01:50:51 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#include "libasm.h"
 #include "libasm_bonus.h"
 
 static void		ft_print_result(t_list *lst)
@@ -87,9 +86,9 @@ int				main(int argc, const char *argv[])
 	t_list	*list;
 	t_list	*ptr;
 
-	if (argc == 1)
+	if (argc < 2)
 		return EXIT_FAILURE;
-	alarm(5);
+	(void)alarm(5);
 	list = ft_list_newnode("yolo");
 	ft_list_push_back(&list, ft_list_newnode("welcome42"));
 	ft_list_push_back(&list, ft_list_newnode("foobar"));

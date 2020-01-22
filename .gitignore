@@ -1,3 +1,4 @@
 /tests/*/*.mine
+/tests/*/*.error
 /libasm.a
 /objs

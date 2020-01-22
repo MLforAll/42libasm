@@ -6,7 +6,7 @@
 /*   By: kdumarai <kdumarai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 15:47:47 by kdumarai          #+#    #+#             */
-/*   Updated: 2020/01/21 21:46:23 by kdumarai         ###   ########.fr       */
+/*   Updated: 2020/01/22 01:50:42 by kdumarai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#include "libasm.h"
 #include "libasm_bonus.h"
 
 static void		ft_print_result(t_list *lst)
@@ -71,9 +70,9 @@ int				main(int argc, const char *argv[])
 	t_list	**ptr;
 	int		(*cbf)(void *, void *);
 
-	if (argc == 1)
+	if (argc < 2)
 		return EXIT_FAILURE;
-	alarm(5);
+	(void)alarm(5);
 	list = NULL;
 	ptr = &list;
 	cbf = &list_sort_cb;

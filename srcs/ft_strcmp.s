@@ -10,17 +10,17 @@ _ft_strcmp:
 	cmp rdi, 0
 	jne .s1_notnull
 	cmp rsi, 0
-	je .ft_ret
+	je .ret
 	movsx eax, byte [rsi]
 	neg eax
-	jmp .ft_ret
+	jmp .ret
 .s1_notnull:
 	cmp rsi, 0
-	jne .ft_loop
+	jne .loop
 	movsx eax, byte [rdi]
-	jmp .ft_ret
+	jmp .ret
 
-.ft_loop:
+.loop:
 	mov dl, byte [rsi]
 	cmp byte [rdi], dl
 	jne .finish
@@ -30,12 +30,12 @@ _ft_strcmp:
 	je .finish
 	inc rdi
 	inc rsi
-	jmp .ft_loop
+	jmp .loop
 .finish:
 	movzx eax, byte [rdi]
 	movzx edx, dl
 	sub eax, edx
-.ft_ret:
+.ret:
 	mov rsp, rbp
 	pop rbp
 	ret
