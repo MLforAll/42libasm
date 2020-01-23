@@ -5,69 +5,6 @@ charset_up	db	"0123456789ABCDEF"
 section .text
 	global _ft_atoi_base
 
-; _ft_atoi_isdigit and _ft_atoi_char_to_int don't comply to calling conventions
-; they don't init a new stack frame (push rbp, change rbp, etc...)
-; they are only meant to be used by this ASM version of _ft_atoi_base
-
-_ft_atoi_isdigit:
-	lea rdx, [rel charset_lc]
-	mov r10d, esi
-.idlc_loop:
-	cmp byte [rdx], 0
-	je .idup
-	cmp r10d, 0
-	je .idup
-	dec r10d
-	mov r9b, byte [rdx]
-	cmp r9b, byte [rdi]
-	je .idret
-	inc rdx
-	jmp .idlc_loop
-.idup:
-	lea rdx, [rel charset_up]
-	mov r10d, esi
-.idup_loop:
-	cmp byte [rdx], 0
-	je .idnret
-	cmp r10d, 0
-	je .idnret
-	dec r10d
-	mov r9b, byte [rdx]
-	cmp r9b, byte [rdi]
-	je .idret
-	inc rdx
-	jmp .idup_loop
-.idnret:
-	mov dl, 0
-	ret
-.idret:
-	mov dl, 1
-	ret
-
-_ft_atoi_char_to_int:
-	cmp byte [rdi], '0'
-	jl .lc
-	cmp byte [rdi], '9'
-	jg .lc
-	movsx edx, byte [rdi]
-	sub edx, '0'
-	ret
-.lc:
-	movsx edx, byte [rdi]
-	cmp byte [rdi], 'a'
-	jl .up
-	cmp byte [rdi], 'z'
-	jg .up
-	sub edx, 'a'
-	add edx, 10
-	ret
-.up:
-	sub edx, 'A'
-	add edx, 10
-	ret
-
-; ft_atoi_base function starts here
-
 _ft_atoi_base:
 	push rbp
 	mov rbp, rsp
@@ -116,10 +53,10 @@ _ft_atoi_base:
 .main_loop:
 	cmp byte [rdi], 0
 	je .finish
-	call _ft_atoi_isdigit
+	call .isdigit
 	cmp dl, 0 ; retval of inline _ft_atoi_isdigit
 	je .finish ; if not digit (any char of hex charset) then jump to .finish
-	call _ft_atoi_char_to_int
+	call .char_to_int
 	imul eax, esi ; edx = ret = base
 	add eax, edx
 	inc rdi
@@ -132,4 +69,66 @@ _ft_atoi_base:
 .ret:
 	mov rsp, rbp
 	pop rbp
+	ret
+
+; .isdigit and .char_to_int are utility functions that
+; don't comply to calling conventions.
+; they don't init a new call frame (push rbp, change rbp, etc...)
+; they are only meant to be used by this ASM version of _ft_atoi_base.
+
+.isdigit:
+	lea rdx, [rel charset_lc]
+	mov r10d, esi
+.idlc_loop:
+	cmp byte [rdx], 0
+	je .idup
+	cmp r10d, 0
+	je .idup
+	dec r10d
+	mov r9b, byte [rdx]
+	cmp r9b, byte [rdi]
+	je .idret
+	inc rdx
+	jmp .idlc_loop
+.idup:
+	lea rdx, [rel charset_up]
+	mov r10d, esi
+.idup_loop:
+	cmp byte [rdx], 0
+	je .idnret
+	cmp r10d, 0
+	je .idnret
+	dec r10d
+	mov r9b, byte [rdx]
+	cmp r9b, byte [rdi]
+	je .idret
+	inc rdx
+	jmp .idup_loop
+.idnret:
+	mov dl, 0
+	ret
+.idret:
+	mov dl, 1
+	ret
+
+.char_to_int:
+	cmp byte [rdi], '0'
+	jl .ctilc
+	cmp byte [rdi], '9'
+	jg .ctilc
+	movsx edx, byte [rdi]
+	sub edx, '0'
+	ret
+.ctilc:
+	movsx edx, byte [rdi]
+	cmp byte [rdi], 'a'
+	jl .ctiup
+	cmp byte [rdi], 'z'
+	jg .ctiup
+	sub edx, 'a'
+	add edx, 10
+	ret
+.ctiup:
+	sub edx, 'A'
+	add edx, 10
 	ret
