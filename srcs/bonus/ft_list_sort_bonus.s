@@ -4,7 +4,6 @@ section .text
 _ft_list_sort:
 	push rbp
 	mov rbp, rsp
-	sub rsp, 32
 
 	cmp rsi, 0
 	je .ret ; if 2nd arg (cmp) is NULL then jump to .ret
@@ -14,6 +13,7 @@ _ft_list_sort:
 	cmp qword rdi, 0
 	je .ret ; if 1st arg points to NULL (*head == NULL) then jump to .ret
 
+	sub rsp, 32
 	mov qword [rbp - 8], rdi ; save *head (deref 1st arg)
 	mov qword [rbp - 16], rsi ; save int (*cmp)(void *, void *)
 

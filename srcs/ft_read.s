@@ -7,10 +7,10 @@ section .text
 _ft_read:
 	push rbp
 	mov rbp, rsp
-	sub rsp, 16
 	mov rax, READ_SYSCALL
 	syscall
 	jnc .ret ; if carry flag (CF) not set, syscall worked jump to .ret
+	sub rsp, 16
 	mov dword [rbp - 4], eax ; save value before calling __error
 	call ___error
 	mov ecx, dword [rbp - 4] ; restore saved eax to ecx

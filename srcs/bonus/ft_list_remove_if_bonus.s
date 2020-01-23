@@ -11,7 +11,6 @@ section .text
 _ft_list_remove_if:
 	push rbp
 	mov rbp, rsp
-	sub rsp, 48
 
 	cmp rdi, 0 ; check that head is non-null
 	je .ret
@@ -21,6 +20,7 @@ _ft_list_remove_if:
 	cmp rdx, 0 ; check that cmp is non-null
 	je .ret
 
+	sub rsp, 48
 	mov qword [rbp - 8], rdi ; save head
 	mov qword [rbp - 16], rsi ; save data
 	mov qword [rbp - 24], rdx ; save cmp

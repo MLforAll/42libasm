@@ -46,6 +46,9 @@ if [ "$ccflags" = fsanitize ]; then
 	ccflags='-fsanitize=address'
 elif [ "$ccflags" = clean ]
 then
+	msg i '=> Clean Project'
+	make fclean -C ..
+	echo
 	msg i '=> Clean tests outputs'
 	find . \( -name 'test*.error' -o -name 'test*.mine' \) -delete -print
 	exit

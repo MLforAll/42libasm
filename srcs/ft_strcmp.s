@@ -21,10 +21,11 @@ _ft_strcmp:
 	jmp .ret
 
 .loop:
+	mov dh, byte [rdi]
 	mov dl, byte [rsi]
-	cmp byte [rdi], dl
+	cmp dh, dl
 	jne .finish
-	cmp byte [rdi], 0
+	cmp dh, 0
 	je .finish
 	cmp dl, 0
 	je .finish
@@ -32,7 +33,7 @@ _ft_strcmp:
 	inc rsi
 	jmp .loop
 .finish:
-	movzx eax, byte [rdi]
+	movzx eax, dh
 	movzx edx, dl
 	sub eax, edx
 .ret:
