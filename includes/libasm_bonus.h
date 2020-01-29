@@ -13,6 +13,8 @@
 #ifndef LIBASM_BONUS_H
 # define LIBASM_BONUS_H
 
+# include <string.h>
+
 typedef struct	s_list
 {
 	void			*data;
